@@ -22,7 +22,7 @@ const MovieList = props => {
   return (
     <nav className="movie-list">
       {movies.map(movie => (
-        <NavLink to={`/movies/${movie.id}`}>
+        <NavLink exact to={`/movies/${movie.id}`}>
           <MovieDetails key={movie.id} movie={movie} />
         </NavLink>
       ))}
