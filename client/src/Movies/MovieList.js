@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import {NavLink} from "react-router-dom";
 
 const MovieList = props => {
   const [movies, setMovies] = useState([])
@@ -19,11 +20,13 @@ const MovieList = props => {
   }, []);
   
   return (
-    <div className="movie-list">
+    <nav className="movie-list">
       {movies.map(movie => (
-        <MovieDetails key={movie.id} movie={movie} />
+        <NavLink exact to={`/movies/${movie.id}`}>
+          <MovieDetails key={movie.id} movie={movie} />
+        </NavLink>
       ))}
-    </div>
+    </nav>
   );
 }
 
